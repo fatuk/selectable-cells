@@ -4,6 +4,7 @@ $(function () {
 		selectedArray = [],
 		$startCell,
 		$endCell,
+		$secondCell,
 		isClicked = false;
 
 	function init() {
@@ -52,6 +53,8 @@ $(function () {
 			y = $startCell.data('y'),
 			horizontal = false;
 
+		$secondCell = $table.find('td.active')[1];
+
 		resetCells();
 
 		if ($startCell.data('x') === $endCell.data('x')) {
@@ -61,17 +64,35 @@ $(function () {
 			horizontal = true;
 		}
 
+		console.log('start', $startCell.data('y'));
+		console.log('end', $endCell.data('y'));
+
 		if (horizontal) {
-			for (var i = start; i <= end; i++) {
-				$table.find('td[data-x="' + i + '"][data-y="' + y + '"]').addClass('active');
+			// Check horizontal direction
+			if ($startCell.data('x') < $endCell.data('x')) {
+				for (var i = start; i <= end; i++) {
+					$table.find('td[data-x="' + i + '"][data-y="' + y + '"]').addClass('active');
+				}
+			} else {
+				for (var i = end; i <= start; i++) {
+					$table.find('td[data-x="' + i + '"][data-y="' + y + '"]').addClass('active');
+				}
 			}
+
 		} else {
 			start = $startCell.data('y');
 			end = $endCell.data('y');
 			x = $startCell.data('x');
 
-			for (var j = start; j <= end; j++) {
-				$table.find('td[data-y="' + j + '"][data-x="' + x + '"]').addClass('active');
+			// Check vertical direction
+			if ($startCell.data('y') < $endCell.data('y')) {
+				for (var j = start; j <= end; j++) {
+					$table.find('td[data-y="' + j + '"][data-x="' + x + '"]').addClass('active');
+				}
+			} else {
+				for (var j = end; j <= start; j++) {
+					$table.find('td[data-y="' + j + '"][data-x="' + x + '"]').addClass('active');
+				}
 			}
 		}
 	}
