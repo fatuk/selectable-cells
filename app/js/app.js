@@ -5,7 +5,9 @@ $(function () {
 		$startCell,
 		$endCell,
 		$secondCell,
-		isClicked = false;
+		isClicked = false,
+		horizontal = false,
+		$hoverCell;
 
 	function init() {
 		$('body').on('mouseup', function () {
@@ -34,6 +36,7 @@ $(function () {
 
 		$cells.on('mouseover', function (e) {
 			var $target = $(e.target);
+			$hoverCell = $target;
 			$endCell = $target;
 
 			if (isClicked) {
@@ -50,22 +53,20 @@ $(function () {
 
 		var start = $startCell.data('x'),
 			end = $endCell.data('x'),
-			y = $startCell.data('y'),
-			horizontal = false;
+			y = $startCell.data('y');
 
 		$secondCell = $table.find('td.active')[1];
 
 		resetCells();
 
-		if ($startCell.data('x') === $endCell.data('x')) {
+		console.log($hoverCell);
+
+		if ($startCell.data('x') === $hoverCell.data('x')) {
 			horizontal = false;
 		}
 		if ($startCell.data('y') === $endCell.data('y')) {
 			horizontal = true;
 		}
-
-		console.log('start', $startCell.data('y'));
-		console.log('end', $endCell.data('y'));
 
 		if (horizontal) {
 			// Check horizontal direction
