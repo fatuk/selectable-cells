@@ -3,8 +3,6 @@ $(function () {
 		$cells = $table.find('td'),
 		selectedArray = [],
 		$startCell,
-		$endCell,
-		$secondCell,
 		isClicked = false,
 		horizontal = false,
 		$hoverCell;
@@ -55,16 +53,12 @@ $(function () {
 			end = $endCell.data('x'),
 			y = $startCell.data('y');
 
-		$secondCell = $table.find('td.active')[1];
-
 		resetCells();
-
-		console.log($hoverCell);
 
 		if ($startCell.data('x') === $hoverCell.data('x')) {
 			horizontal = false;
 		}
-		if ($startCell.data('y') === $endCell.data('y')) {
+		if ($startCell.data('y') === $hoverCell.data('y')) {
 			horizontal = true;
 		}
 
