@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Selectable cells</title>
+	<link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+	<table id="table">
+		<tbody>
+			{{#each table}}
+				<tr>
+					{{#each this}}
+						<td data-x="{{this.x}}" data-y="{{this.y}}">{{this.content}}</td>
+					{{/each}}
+				</tr>
+			{{/each}}
+		</tbody>
+	</table>
+	<div class="btn-set">
+		<button id="resetBtn">
+			Reset cells
+		</button>
+	</div>
+	<script src="js/plugins.min.js"></script>
+	<script src="js/app.js"></script>
+</body>
+</html>
