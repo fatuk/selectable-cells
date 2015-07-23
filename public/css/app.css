@@ -1,0 +1,40 @@
+body {
+  font-family: sans-serif;
+}
+.no-select {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+table td {
+  width: 30px;
+  height: 30px;
+  background: orange;
+  text-align: center;
+  vertical-align: middle;
+  cursor: default;
+  -webkit-transition: color .3s, background .3s;
+  transition: color .3s, background .3s;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+table td.active {
+  background: brown;
+  color: #fff;
+}
+.btn-set {
+  padding: 10px;
+}
+button {
+  border: none;
+  background: brown;
+  color: #fff;
+  display: inline-block;
+  line-height: 30px;
+  padding: 0 20px;
+}
+
+/*# sourceMappingURL=../css/app.css.map */
